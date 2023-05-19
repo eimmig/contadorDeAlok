@@ -121,6 +121,9 @@
   </style>
 </head>
 <body>
+  <audio hidden id="audioPlayer" controls>
+    <source src="./Alok_Bhaskar_Fuego_Ringtone_(by Fringster.com).mp3" type="audio/mp3">
+  </audio>
   <div class="container">
     <h1 style="color:white;">Contador</h1>
     <div class="counter" id="counter" style="color:white;">0</div>
@@ -129,11 +132,13 @@
 
   <script>
     let count = 0;
+    var audio = document.getElementById("audioPlayer");
     const counterElement = document.getElementById('counter');
 
     function incrementCounter() {
       count++;
       counterElement.textContent = count;
+      audio.play();
     }
   </script>
 </body>
