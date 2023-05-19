@@ -24,18 +24,107 @@
     .button {
       padding: 10px 20px;
       font-size: 24px;
-      background-color: #4CAF50;
+      background-color: rgba(0, 0, 0, 0.5);
       color: white;
       border: none;
       cursor: pointer;
     }
+
+    button{
+      position: relative;
+      width: 160px;
+      height: 50px;
+      line-height: 48px;
+      background: #000;
+      text-transform: uppercase;
+      font-size: 20px;
+      letter-spacing: 4px;
+      text-decoration: none;
+      -webkit-box-reflect: below 1px -webkit-linear-gradient(transparent, #0004);
+  }
+  
+    button::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(251, 0, 148, 1), rgba(0, 0, 255, 1), rgba(0, 255, 0, 1), 
+      rgba(255, 255, 0, 1), rgba(255, 0, 0, 1), rgba(251, 0, 148, 1), rgba(0, 0, 255, 1), 
+      rgba(0, 255, 0, 1), rgba(255, 255, 0, 1), rgba(255, 0, 0, 1));
+      background-size: 400%;
+      opacity: 0;
+      filter: blur(20px);
+      transition: 0.5s;
+  }
+  button::after{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(251, 0, 148, 1), rgba(0, 0, 255, 1), rgba(0, 255, 0, 1), 
+      rgba(255, 255, 0, 1), rgba(255, 0, 0, 1), rgba(251, 0, 148, 1), rgba(0, 0, 255, 1), 
+      rgba(0, 255, 0, 1), rgba(255, 255, 0, 1), rgba(255, 0, 0, 1));
+      background-size: 400%;
+      opacity: 0;
+      transition: 0.5s;
+  }
+  
+  button:hover::before,
+  button:hover::after{
+      opacity: 1;
+      animation: animate 20s linear infinite;
+  }
+  
+  @keyframes animate{
+      0%{
+          background-position: 0 0;
+      }
+      50%{
+          background-position: 300% 0;
+      }
+      100%{
+          background-position: 0 0;
+      }
+  }
+  
+  button span{
+      position: absolute;
+      display: block;
+      top: 1px;
+      left: 1px;
+      right: 1px;
+      bottom: 1px;
+      text-align: center;
+      background: rgba(12, 12, 12, 0.5);
+      color: rgba(255, 255, 255, 0.5);
+      transition: 0.5s;
+      z-index: 1;
+  }
+  
+  button:hover span{
+      color: rgba(255, 255, 255, 1);
+  }
+  
+  button span::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: rgba(255, 255, 255, 0.1);
+  }
   </style>
 </head>
 <body>
   <div class="container">
     <h1 style="color:white;">Contador</h1>
     <div class="counter" id="counter" style="color:white;">0</div>
-    <button class="button" onclick="incrementCounter()">Contar Alok</button>
+    <button class="button" onclick="incrementCounter()"><span>Contar</span></button>
   </div>
 
   <script>
