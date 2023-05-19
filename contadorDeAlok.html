@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contador</title>
+  <style>
+    body {
+      background-image: url('https://cdn2.tfx.company/images/clickwallpapers-Alok-music-fullhd-img1.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .container {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .counter {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      font-size: 24px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 style="color:white;">Contador</h1>
+    <div class="counter" id="counter" style="color:white;">0</div>
+    <button class="button" onclick="incrementCounter()">Contar Alok</button>
+  </div>
+
+  <script>
+    let count = 0;
+    const counterElement = document.getElementById('counter');
+
+    function incrementCounter() {
+      count++;
+      counterElement.textContent = count;
+    }
+  </script>
+</body>
+</html>
